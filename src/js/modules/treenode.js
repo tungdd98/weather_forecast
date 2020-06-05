@@ -6,7 +6,6 @@
 class TreeNode {
   constructor(attrs = []) {
     this._n           = 0
-    this._numberLabel = 0
     this._childs      = null
     this._attrs       = attrs
   }
@@ -15,12 +14,6 @@ class TreeNode {
   }
   set n(n) {
     this._n = n
-  }
-  get numberLabel() {
-    return this._numberLabel
-  }
-  set numberLabel(numberLabel) {
-    this._numberLabel = numberLabel
   }
   get childs() {
     return this._childs
@@ -39,12 +32,10 @@ class TreeNode {
     for(let i in this.attrs.value) {
       this.childs[i] = new TreeNode()
     }
-    this.numberLabel = this.attrs.value.length == 0 ? 1 : 0
   }
   addNode(child) {
     if(this.n < this.childs.length) {
       this.childs[this.n] = child
-      this.numberLabel    = this.numberLabel + child.numberLabel
     }
     this.n++
   }
