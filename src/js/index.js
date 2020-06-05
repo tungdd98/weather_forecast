@@ -20,5 +20,27 @@ window.onload = () => {
       APP.init('', value, demo)
     }
   })
+
+  APP.fn('#btn-thuattoan').addEventListener('click', function() {
+    if (APP.fn('#modal-thuattoan').classList.contains('show')) {
+      APP.fn('#modal-thuattoan').classList.remove('show')
+    } else {
+      APP.fn('#modal-thuattoan').classList.add('show')
+    }
+    APP.fn('#modal-thuattoan .w-modal-content').innerHTML = demo.solution
+  })
+
+  APP.fn('#btn-cancel-thuattoan').addEventListener('click', function() {
+    if (APP.fn('#modal-thuattoan').classList.contains('show')) {
+      APP.fn('#modal-thuattoan').classList.remove('show')
+    } else {
+      APP.fn('#modal-thuattoan').classList.add('show')
+    }
+  })
+
+  APP.fn('#btn-dubao').addEventListener('click', function() {
+    console.log('dự báo')
+    APP.getInputField(demo)
+  })
 }
 
