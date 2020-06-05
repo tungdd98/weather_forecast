@@ -57,7 +57,7 @@ const APP = (function () {
         if (res.cod === 200) {
           showData(res)
           if (ID3.tree) {
-            getForeCastToday(ID3.tree, definedProperty(res), 0)
+            getForeCastToday(ID3.tree, definedProperty(res))
           }
           console.log(ID3)
         } else {
@@ -126,18 +126,19 @@ const APP = (function () {
    * @param {*} data 
    * @param {*} depth 
    */
-  function getForeCastToday(tree, data, depth) {
+  function getForeCastToday(tree, data) {
+    console.log(tree)
     if (tree.n === 0) {
       fn('.w-forecast__outlook').innerHTML = tree.attrs.name
       doWeather(slug(tree.attrs.name))
       fn('.w-forecast__image img').src = IMAGES[slug(tree.attrs.name)]
+    } else {
+      fn('.w-forecast__outlook').innerHTML = '...'
     }
     for (let i in tree.attrs.value) {
       for (let j in data) {
         if (data[j] === tree.attrs.value[i]) {
-          data.splice(depth, 1)
-          depth++
-          getForeCastToday(tree.childs[i], data, depth)
+          getForeCastToday(tree.childs[i], data)
         }
       }
     }
@@ -175,7 +176,7 @@ const APP = (function () {
     else if (valHumidity >= CONFIGS.humidity["trung bình"].min && valHumidity <= CONFIGS.humidity["trung bình"].max) humidity = "d.trung bình"
     else humidity = "d.cao"
 
-    getForeCastToday(ID3.tree, [temp, humidity, cloud, wind], 0)
+    getForeCastToday(ID3.tree, [temp, humidity, cloud, wind])
 
     fn('.w-forecast__temp').innerHTML = valTemp + "°C"
     fn('.w-forecast__humidity').innerHTML = valHumidity + "%"
