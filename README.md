@@ -3,24 +3,21 @@
 ```
 ├── dist: project đã được build, mở file auth để khởi chạy
 │   └── index.html
-│   └── auth.html
 │   └── js
 │        └── bundle.js: file production của trang index.html
-│        └── bundle2.js file production của trang auth.html
 ├── src
 │   └── index.html
-│   └── auth.html
-│   └── assets
-│   └── helpers
-│        └── index.js: chứa cái function global
+│   └── assets: chứa hình ảnh
 │   └── js
+│        └── configs: chứa thông tin config
+│        └── mocks: dữ liệu mẫu
 │        └── modules
-│             └── api.js: lưu data vào localStorage
-│             └── auth.js: xác thực dữ liệu đầu vào
-│             └── validator: validate dữ liệu
-│        └── app.js: js file index.html
-│        └── main.js: js file auth.html
-│   └── scss
+│             └── app.js: khởi tạo chương trình
+│             └── attribute.js: thuộc tính
+│             └── treenode.js: nhánh cây
+│             └── id3: thuật toán id3
+│        └── index.js: file import modules
+│   └── sass
 ├── .babelrc
 ├── package.json
 ├── package-lock.json
