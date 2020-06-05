@@ -10,6 +10,7 @@
   <div id="app" class="w-container">
     <section class="w-search">
       <input type="text" placeholder="Thành phố của bạn..." id="id3-search" value="hanoi" />
+      <a href="#" class="w-btn" id="btn-thuattoan"><span>Thuật toán</span></a>
     </section>
     <img src="assets/forest.svg" alt="bg" class="w-bg-img" />
     <section class="w-calendar">
@@ -34,6 +35,32 @@
           Mây: <span class="w-forecast__clouds">...</span>
         </div>
       </div>
+    </section>
+    <section class="w-forecast option2">
+      <h4>Nhập dữ liệu</h4>
+      <div class="form-control">
+        <label for="">Nhiệt độ: (<sup>o</sup>C)</label>
+        <input type="number" placeholder="Nhiệt độ..." id="ip-nhietdo">
+      </div>
+      <div class="form-control">
+        <label for="">Độ ẩm: (%)</label>
+        <input type="number" placeholder="Độ ẩm..." id="ip-doam">
+      </div>
+      <div class="form-control">
+        <label for="">Mây: </label>
+        <select name="" id="sl-may">
+          <option value="nhiều">Nhiều</option>
+          <option value="ít">ít</option>
+        </select>
+      </div>
+      <div class="form-control">
+        <label for="">Gió: </label>
+        <select name="" id="sl-gio">
+          <option value="mạnh">Mạnh</option>
+          <option value="nhẹ">Nhẹ</option>
+        </select>
+      </div>
+      <button id="btn-dubao">Dự báo</button>
     </section>
     <section class="w-do-weather">
       <div class="mua">
@@ -74,6 +101,12 @@
         <div class="mat-me-item">❧</div>
         <div class="mat-me-item">❧</div>
         <div class="mat-me-item">❧</div>
+      </div>
+    </section>
+    <section class="w-modal" id="modal-thuattoan">
+      <div class="w-modal-container">
+        <div class="w-modal-cancel" id="btn-cancel-thuattoan">X</div>
+        <div class="w-modal-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod voluptatem pariatur libero repellat. Corrupti quasi aperiam inventore, numquam cupiditate tenetur porro tempore sint tempora repellendus praesentium in fugiat ut ipsa.</div>
       </div>
     </section>
   </div>

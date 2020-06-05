@@ -127,7 +127,6 @@ const APP = (function () {
    * @param {*} depth 
    */
   function getForeCastToday(tree, data, depth) {
-    console.log(tree)
     if (tree.n === 0) {
       fn('.w-forecast__outlook').innerHTML = tree.attrs.name
       doWeather(slug(tree.attrs.name))
@@ -156,6 +155,32 @@ const APP = (function () {
     } else {
       alert('Kiểu thời tiết chưa được định nghĩa')
     }
+  }
+
+  /**
+   * Lấy dữ liệu từ ô input dự báo
+   */
+  function getInputField(ID3) {
+    let temp, humidity
+    let valTemp = fn('#ip-nhietdo').value.trim() || 0
+    let valHumidity = fn('#ip-doam').value.trim() || 0
+    let cloud = fn('#sl-may').value
+    let wind = fn('#sl-gio').value
+
+    if (valTemp <= CONFIGS.temp["thấp"].max) temp = "t.thấp"
+    else if (valTemp >= CONFIGS.temp["trung bình"].min && valTemp <= CONFIGS.temp["trung bình"].max) temp = "t.trung bình"
+    else temp = "t.cao"
+
+    if (valHumidity <= CONFIGS.humidity["thấp"].max) humidity = "d.thấp"
+    else if (valHumidity >= CONFIGS.humidity["trung bình"].min && valHumidity <= CONFIGS.humidity["trung bình"].max) humidity = "d.trung bình"
+    else humidity = "d.cao"
+
+    getForeCastToday(ID3.tree, [temp, humidity, cloud, wind], 0)
+
+    fn('.w-forecast__temp').innerHTML = valTemp + "°C"
+    fn('.w-forecast__humidity').innerHTML = valHumidity + "%"
+    fn('.w-forecast__wind').innerHTML = cloud
+    fn('.w-forecast__clouds').innerHTML = wind
   }
 
   /**
@@ -195,7 +220,8 @@ const APP = (function () {
     definedProperty,
     getForeCastToday,
     doWeather,
-    slug
+    slug,
+    getInputField
   })
 })()
 
