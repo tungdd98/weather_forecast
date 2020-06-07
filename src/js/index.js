@@ -3,10 +3,14 @@ import '../sass/main.scss'
 
 import TreeID3 from './modules/id3.js'
 import DATA from './mocks/tranning.js'
+import DATA2 from './mocks/tranning2.js'
 import APP from './modules/app.js'
 
 const demo = new TreeID3(DATA.data, DATA.attrs, DATA.target)
-demo.getTree()
+// demo.getTree()
+
+const demo2 = new TreeID3(DATA2.data, DATA2.attrs, DATA2.target)
+demo2.getTree()
 
 window.onload = () => {
   setInterval(() => {

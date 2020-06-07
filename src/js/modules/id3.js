@@ -58,7 +58,32 @@ class TreeID3 {
    * @param {*} arrayValue 
    */
   entropy(arrayValue = []) {
-    if (arrayValue.every(value => value === 0)) {
+    console.log(arrayValue)
+    const size = arrayValue.length
+    const isCheckEntropy1 = true
+    let isCheckEntropy0 = 0
+
+    // Kiểm tra nếu tất cả các thành viên của tập S đều bằng nhau thì Entropy = 1
+    for (let i = 0; i < size - 1; i++) {
+      for(let j = i + 1; j < size; j++) {
+        if(arrayValue[i] !== arrayValue[j]) {
+          isCheckEntropy1 = false
+        }
+      }
+    }
+
+    if (isCheckEntropy1) {
+      return 1
+    }
+
+    // Kiểm tra nếu tất cả các thành viên của tập S thuộc 1 lớp thì Entropy = 0
+    for(let i = 0; i < size; i++) {
+      if(arrayValue[i] === 0) {
+        isCheckEntropy0++
+      }
+    }
+
+    if(isCheckEntropy0 === size) {
       return 0
     }
 
@@ -85,6 +110,7 @@ class TreeID3 {
     const col = this.attrs.indexOf(attr)
 
     if (attr) {
+      console.log(attr.name)
       for (let i in attr.value) {
         countAttr[i] = Array(sizeTarget).fill(0)
       }
