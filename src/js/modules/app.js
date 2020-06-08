@@ -212,6 +212,33 @@ const APP = (function () {
     return str;
   }
 
+  const loadDataTable = function(DATA) {
+    console.log(DATA)
+    const thead = fn('#id3-table thead')
+    const tbody = fn('#id3-table tbody')
+
+    let template = `<th>#</th>`
+
+    for (let i in DATA.attrs) {
+      const attr = DATA.attrs[i]
+      template += `<th>${attr.name}</th>`
+    }
+    thead.innerHTML = template
+
+    let content = ''
+    for (let i in DATA.data) {
+      content += '<tr>'
+      content += `<th>${i}</th>`
+
+      const item = DATA.data[i]
+      for (let j in item) {
+        content += `<td>${item[j]}</td>`
+      }
+      content += `</tr>`
+    }
+    tbody.innerHTML = content
+  }
+
   return Object.freeze({
     fn,
     getDateTime,
@@ -222,7 +249,8 @@ const APP = (function () {
     getForeCastToday,
     doWeather,
     slug,
-    getInputField
+    getInputField,
+    loadDataTable
   })
 })()
 

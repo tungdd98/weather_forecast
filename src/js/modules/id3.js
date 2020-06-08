@@ -63,7 +63,6 @@ class TreeID3 {
     let isCheckEntropy1 = true
     let isCheckEntropy0 = 0
 
-    // Kiểm tra nếu tất cả các thành viên của tập S đều bằng nhau thì Entropy = 1
     for (let i = 0; i < size - 1; i++) {
       for (let j = i + 1; j < size; j++) {
         if (arrayValue[i] !== arrayValue[j]) {
@@ -77,7 +76,6 @@ class TreeID3 {
       return 1
     }
 
-    // Kiểm tra nếu tất cả các thành viên của tập S thuộc 1 lớp thì Entropy = 0
     for (let i = 0; i < size; i++) {
       if (arrayValue[i] === 0) {
         isCheckEntropy0++
@@ -88,9 +86,7 @@ class TreeID3 {
       return 0
     }
 
-    // Tổng số lần xuất hiện giá trị i của thuộc tính A 
     const total = arrayValue.reduce((acc, cur) => acc += cur, 0)
-    // Xác suất xuất hiện trạng thái i của hệ thống
     const rates = arrayValue.map(elm => parseFloat(elm / total), [])
     const entropy = rates.reduce((acc, cur) => {
       let valueCur = cur !== 0 ? - cur * Math.log2(cur) : 0
@@ -108,38 +104,29 @@ class TreeID3 {
    */
   gain(data = [], attr = null, bestAt = '') {
     const sizeTarget = this.target.length
-    // Tập S của thuộc tính mục tiêu ban đầu
     const countBase = Array(sizeTarget).fill(0)
-    // Tập S của giá trị từng thuộc tính A đang xét
     const countAttr = []
-    // Vị trí cột thuộc tính điều kiện A đang xét
     const col = this.attrs.indexOf(attr)
 
     if (attr) {
       console.log(attr.name)
-      // Lặp các giá trị của thuộc tính A, gán số lần xuất hiện ban đầu trạng thái i bằng 0
       for (let i in attr.value) {
         countAttr[i] = Array(sizeTarget).fill(0)
       }
-      // Lặp bảng dữ liệu tập huấn
       for (let i in data) {
-        // Vị trí ô dữ liệu đang xét trong thuộc tính A
         let j = attr.value.indexOf(data[i][col])
+        
         if (j > -1) {
-          // Giá trị của thuộc tính mục tiêu đang xét tại hàng đấy
           let valTargetData = data[i][data[0].length - 1]
-          // Vị trí giá trị mục tiêu
           let idx = this.target.indexOf(valTargetData)
+
           if (idx > -1) {
             countBase[idx]++
             countAttr[j][idx]++
           }
         }
       }
-      console.log(countAttr)
-      // Tổng phần tử trong phân hoạch
       const total = data.length
-      // Tính Entropy(S)
       let result = this.entropy(countBase)
 
       for (let i in attr.value) {
@@ -206,7 +193,6 @@ class TreeID3 {
    */
   initID3(data, attrs, bestAt) {
     this.solution = this.solution + `<p class="text-center" style="font-size: 16px; border-bottom: 1px dashed #333; font-weight: 600">Xét nút ${bestAt}</p>`
-    // Nếu tất cả các mẫu trong data đều thuộc 1 lớp thì trả về nút lá có nhãn là nút đấy
     if (this.isDuplicateData(data).ok) {
       let label = this.isDuplicateData(data).label
       this.solution += `\nTrả về nút gốc với nhãn ${label}`
@@ -216,14 +202,12 @@ class TreeID3 {
     } else {
       // console.log('Vẫn còn giá trị trùng lặp')
     }
-    // Nếu tất cả thuộc tính rỗng thì trả về cây có 1 nút gốc
     if (attrs.length === 0) {
       this.solution += `\nCác thuộc tính rỗng => Trả về nút gốc có giá trị phổ biến nhất`
       let branch = new TreeNode(new Attribute('', []))
       branch.init()
       return branch
     }
-    // Tìm thuộc tính có Gain lớn nhất
     let bestAttr = this.getBestAttribute(data, attrs, bestAt)
     let idxMax = attrs.indexOf(bestAttr)
     let root = new TreeNode(bestAttr)
@@ -231,20 +215,17 @@ class TreeID3 {
 
     for (let i in bestAttr.value) {
       const value = bestAttr.value[i]
-      // Tạo bảng dữ liệu mới
       const dataNew = []
       for (let j in data) {
         if (data[j][idxMax] === value && data[j][idxMax] !== '') {
           dataNew.push(data[j])
         }
       }
-      // Nếu tập dữ liệu mới là rỗng thì bổ sung nút lá
       if (dataNew.length === 0) {
         this.solution += `\nCác thuộc tính rỗng => Trả về nút gốc có giá trị phổ biến nhất`
         let branch = new TreeNode(new Attribute('', []))
         branch.init()
         // return branch
-        // Nếu không thì bổ sung cây con ID3
       } else {
         this.solution += '\n'
         attrs.splice(idxMax, 1, null)

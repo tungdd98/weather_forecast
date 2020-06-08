@@ -8,6 +8,7 @@ import APP from './modules/app.js'
 
 const demo = new TreeID3(DATA.data, DATA.attrs, DATA.target)
 demo.getTree()
+APP.loadDataTable(DATA)
 
 // const demo2 = new TreeID3(DATA2.data, DATA2.attrs, DATA2.target)
 // demo2.getTree()
@@ -17,6 +18,7 @@ window.onload = () => {
     APP.getDateTime()
   }, 1000);
   APP.init('start', '', demo)
+
   APP.fn('#id3-search').addEventListener('keyup', () => {
     let value = event.target.value.trim()
     let keyCode = event.keyCode
@@ -31,6 +33,7 @@ window.onload = () => {
     } else {
       APP.fn('#modal-thuattoan').classList.add('show')
     }
+
     APP.fn('#modal-thuattoan .w-modal-content').innerHTML = demo.solution
   })
 
