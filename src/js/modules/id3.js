@@ -58,7 +58,31 @@ class TreeID3 {
    * @param {*} arrayValue 
    */
   entropy(arrayValue = []) {
-    if (arrayValue.every(value => value === 0)) {
+    console.log(arrayValue)
+    const size = arrayValue.length
+    let isCheckEntropy1 = true
+    let isCheckEntropy0 = 0
+
+    for (let i = 0; i < size - 1; i++) {
+      for (let j = i + 1; j < size; j++) {
+        if (arrayValue[i] !== arrayValue[j]) {
+          isCheckEntropy1 = false
+          break
+        }
+      }
+    }
+
+    if (isCheckEntropy1) {
+      return 1
+    }
+
+    for (let i = 0; i < size; i++) {
+      if (arrayValue[i] === 0) {
+        isCheckEntropy0++
+      }
+    }
+
+    if (isCheckEntropy0 === size - 1) {
       return 0
     }
 
@@ -85,14 +109,17 @@ class TreeID3 {
     const col = this.attrs.indexOf(attr)
 
     if (attr) {
+      console.log(attr.name)
       for (let i in attr.value) {
         countAttr[i] = Array(sizeTarget).fill(0)
       }
       for (let i in data) {
         let j = attr.value.indexOf(data[i][col])
+        
         if (j > -1) {
           let valTargetData = data[i][data[0].length - 1]
           let idx = this.target.indexOf(valTargetData)
+
           if (idx > -1) {
             countBase[idx]++
             countAttr[j][idx]++
@@ -138,6 +165,7 @@ class TreeID3 {
 
   /**
    * Kiểm tra dữ liệu mục tiêu có còn trùng lặp hay không
+   * Nếu tất cả đều thuộc cùng 1 lớp thì trả về nút lá có giá trị là lớp đấy
    * @param {*} data 
    */
   isDuplicateData(data) {
@@ -193,7 +221,6 @@ class TreeID3 {
           dataNew.push(data[j])
         }
       }
-      // console.log(dataNew)
       if (dataNew.length === 0) {
         this.solution += `\nCác thuộc tính rỗng => Trả về nút gốc có giá trị phổ biến nhất`
         let branch = new TreeNode(new Attribute('', []))

@@ -129,15 +129,15 @@ const APP = (function () {
   function getForeCastToday(tree, data) {
     console.log(tree)
     if (tree.n === 0) {
-      fn('.w-forecast__outlook').innerHTML = tree.attrs.name
-      doWeather(slug(tree.attrs.name))
-      fn('.w-forecast__image img').src = IMAGES[slug(tree.attrs.name)]
+      fn('.w-forecast__outlook').innerHTML = tree.attr.name
+      doWeather(slug(tree.attr.name))
+      fn('.w-forecast__image img').src = IMAGES[slug(tree.attr.name)]
     } else {
       fn('.w-forecast__outlook').innerHTML = '...'
     }
-    for (let i in tree.attrs.value) {
+    for (let i in tree.attr.value) {
       for (let j in data) {
-        if (data[j] === tree.attrs.value[i]) {
+        if (data[j] === tree.attr.value[i]) {
           getForeCastToday(tree.childs[i], data)
         }
       }
@@ -212,6 +212,33 @@ const APP = (function () {
     return str;
   }
 
+  const loadDataTable = function(DATA) {
+    console.log(DATA)
+    const thead = fn('#id3-table thead')
+    const tbody = fn('#id3-table tbody')
+
+    let template = `<th>#</th>`
+
+    for (let i in DATA.attrs) {
+      const attr = DATA.attrs[i]
+      template += `<th>${attr.name}</th>`
+    }
+    thead.innerHTML = template
+
+    let content = ''
+    for (let i in DATA.data) {
+      content += '<tr>'
+      content += `<th>${i}</th>`
+
+      const item = DATA.data[i]
+      for (let j in item) {
+        content += `<td>${item[j]}</td>`
+      }
+      content += `</tr>`
+    }
+    tbody.innerHTML = content
+  }
+
   return Object.freeze({
     fn,
     getDateTime,
@@ -222,7 +249,8 @@ const APP = (function () {
     getForeCastToday,
     doWeather,
     slug,
-    getInputField
+    getInputField,
+    loadDataTable
   })
 })()
 

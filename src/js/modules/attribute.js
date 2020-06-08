@@ -4,6 +4,11 @@
  * 
  */
 class Attribute {
+  /**
+   * 
+   * @param {*} name tên thuộc tính 
+   * @param {*} value các giá trị của thuộc tính
+   */
   constructor(name, value) {
     this._name  = name
     this._value = value
