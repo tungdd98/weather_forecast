@@ -65,8 +65,8 @@ class TreeID3 {
 
     // Kiểm tra nếu tất cả các thành viên của tập S đều bằng nhau thì Entropy = 1
     for (let i = 0; i < size - 1; i++) {
-      for(let j = i + 1; j < size; j++) {
-        if(arrayValue[i] !== arrayValue[j]) {
+      for (let j = i + 1; j < size; j++) {
+        if (arrayValue[i] !== arrayValue[j]) {
           isCheckEntropy1 = false
           break
         }
@@ -78,13 +78,13 @@ class TreeID3 {
     }
 
     // Kiểm tra nếu tất cả các thành viên của tập S thuộc 1 lớp thì Entropy = 0
-    for(let i = 0; i < size; i++) {
-      if(arrayValue[i] === 0) {
+    for (let i = 0; i < size; i++) {
+      if (arrayValue[i] === 0) {
         isCheckEntropy0++
       }
     }
 
-    if(isCheckEntropy0 === size) {
+    if (isCheckEntropy0 === size - 1) {
       return 0
     }
 
