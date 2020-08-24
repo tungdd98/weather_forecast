@@ -227,62 +227,68 @@
       top: -100px;
       width: 1px;
       height: 100px;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(#fff));
+      background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(transparent),
+        to(#fff)
+      );
       background-image: linear-gradient(to bottom, transparent, #fff);
       z-index: 100;
 
       &:nth-child(2) {
         left: 10%;
-        -webkit-animation: rainFall .8s linear 2s infinite;
-        animation: rainFall .8s linear 2s infinite;
+        -webkit-animation: rainFall 0.8s linear 2s infinite;
+        animation: rainFall 0.8s linear 2s infinite;
       }
 
       &:nth-child(3) {
         left: 15%;
-        -webkit-animation: rainFall .7s linear 1s infinite;
-        animation: rainFall .7s linear 1s infinite;
+        -webkit-animation: rainFall 0.7s linear 1s infinite;
+        animation: rainFall 0.7s linear 1s infinite;
       }
 
       &:nth-child(4) {
         left: 35%;
-        -webkit-animation: rainFall .7s linear .1s infinite;
-        animation: rainFall .7s linear .1s infinite;
+        -webkit-animation: rainFall 0.7s linear 0.1s infinite;
+        animation: rainFall 0.7s linear 0.1s infinite;
       }
 
       &:nth-child(5) {
         left: 65%;
-        -webkit-animation: rainFall .7s linear .3s infinite;
-        animation: rainFall .7s linear .3s infinite;
+        -webkit-animation: rainFall 0.7s linear 0.3s infinite;
+        animation: rainFall 0.7s linear 0.3s infinite;
       }
 
       &:nth-child(6) {
         left: 20%;
-        -webkit-animation: rainFall .8s linear .9s infinite;
-        animation: rainFall .8s linear .9s infinite;
+        -webkit-animation: rainFall 0.8s linear 0.9s infinite;
+        animation: rainFall 0.8s linear 0.9s infinite;
       }
 
       &:nth-child(7) {
         left: 70%;
-        -webkit-animation: rainFall .6s linear 1.1s infinite;
-        animation: rainFall .6s linear 1.1s infinite;
+        -webkit-animation: rainFall 0.6s linear 1.1s infinite;
+        animation: rainFall 0.6s linear 1.1s infinite;
       }
 
       &:nth-child(8) {
         left: 95%;
-        -webkit-animation: rainFall .7s linear 1s infinite;
-        animation: rainFall .7s linear 1s infinite;
+        -webkit-animation: rainFall 0.7s linear 1s infinite;
+        animation: rainFall 0.7s linear 1s infinite;
       }
 
       &:nth-child(9) {
         left: 45%;
-        -webkit-animation: rainFall .8s linear 0.5s infinite;
-        animation: rainFall .8s linear 0.5s infinite;
+        -webkit-animation: rainFall 0.8s linear 0.5s infinite;
+        animation: rainFall 0.8s linear 0.5s infinite;
       }
 
       &:nth-child(10) {
         left: 33%;
-        -webkit-animation: rainFall .8s linear 0.65s infinite;
-        animation: rainFall .8s linear 0.65s infinite;
+        -webkit-animation: rainFall 0.8s linear 0.65s infinite;
+        animation: rainFall 0.8s linear 0.65s infinite;
       }
     }
   }
@@ -293,111 +299,80 @@
     &-item {
       color: #fff;
       font-size: 1.5em;
-      font-family: inherit,
-        sans-serif;
+      font-family: inherit, sans-serif;
       text-shadow: 0 0 5px #000;
       position: fixed;
       top: -10%;
       z-index: 9999;
-      -webkit-animation-name: snowflakes-fall,
-        snowflakes-shake;
-      animation-name: snowflakes-fall,
-        snowflakes-shake;
-      -webkit-animation-duration: 10s,
-        3s;
-      animation-duration: 10s,
-        3s;
-      -webkit-animation-timing-function: linear,
-        ease-in-out;
-      animation-timing-function: linear,
-        ease-in-out;
-      -webkit-animation-iteration-count: infinite,
-        infinite;
-      animation-iteration-count: infinite,
-        infinite;
-      -webkit-animation-play-state: running,
-        running;
-      animation-play-state: running,
-        running;
+      -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+      animation-name: snowflakes-fall, snowflakes-shake;
+      -webkit-animation-duration: 10s, 3s;
+      animation-duration: 10s, 3s;
+      -webkit-animation-timing-function: linear, ease-in-out;
+      animation-timing-function: linear, ease-in-out;
+      -webkit-animation-iteration-count: infinite, infinite;
+      animation-iteration-count: infinite, infinite;
+      -webkit-animation-play-state: running, running;
+      animation-play-state: running, running;
 
       &:nth-child(1) {
         left: 1%;
-        -webkit-animation-delay: 0s,
-          0s;
-        animation-delay: 0s,
-          0s;
+        -webkit-animation-delay: 0s, 0s;
+        animation-delay: 0s, 0s;
       }
 
       &:nth-child(2) {
         left: 10%;
-        -webkit-animation-delay: 1s,
-          1s;
-        animation-delay: 1s,
-          1s;
+        -webkit-animation-delay: 1s, 1s;
+        animation-delay: 1s, 1s;
       }
 
       &:nth-child(3) {
         left: 20%;
-        -webkit-animation-delay: 6s,
-          .5s;
-        animation-delay: 6s,
-          .5s;
+        -webkit-animation-delay: 6s, 0.5s;
+        animation-delay: 6s, 0.5s;
       }
 
       &:nth-child(4) {
         left: 30%;
-        -webkit-animation-delay: 4s,
-          2s;
-        animation-delay: 4s,
-          2s;
+        -webkit-animation-delay: 4s, 2s;
+        animation-delay: 4s, 2s;
       }
 
       &:nth-child(5) {
         left: 40%;
-        -webkit-animation-delay: 2s,
-          2s;
-        animation-delay: 2s,
-          2s;
+        -webkit-animation-delay: 2s, 2s;
+        animation-delay: 2s, 2s;
       }
 
       &:nth-child(6) {
         left: 50%;
-        -webkit-animation-delay: 8s,
-          3s;
-        animation-delay: 8s,
-          3s;
+        -webkit-animation-delay: 8s, 3s;
+        animation-delay: 8s, 3s;
       }
 
       &:nth-child(7) {
         left: 60%;
-        -webkit-animation-delay: 6s,
-          2s;
-        animation-delay: 6s,
-          2s;
+        -webkit-animation-delay: 6s, 2s;
+        animation-delay: 6s, 2s;
       }
 
       &:nth-child(8) {
         left: 70%;
-        -webkit-animation-delay: 2.5s,
-          1s;
-        animation-delay: 2.5s,
-          1s;
+        -webkit-animation-delay: 2.5s, 1s;
+        animation-delay: 2.5s, 1s;
       }
 
       &:nth-child(9) {
         left: 80%;
-        -webkit-animation-delay: 1s,
-          0s;
-        animation-delay: 1s,
-          0s;
+        -webkit-animation-delay: 1s, 0s;
+        animation-delay: 1s, 0s;
       }
 
       &:nth-child(10) {
         left: 90%;
-        -webkit-animation-delay: 3s,
-          1.5s;
-        animation-delay: 3s,
-          1.5s;
+        -webkit-animation-delay: 3s, 1.5s;
+        animation-delay: 3s, 1.5s;
       }
     }
   }
@@ -426,111 +401,80 @@
     &-item {
       color: #ffaaa5;
       font-size: 2em;
-      font-family: inherit,
-        sans-serif;
+      font-family: inherit, sans-serif;
       text-shadow: 0 0 5px #000;
       position: fixed;
       top: -10%;
       z-index: 9999;
-      -webkit-animation-name: snowflakes-fall,
-        snowflakes-shake;
-      animation-name: snowflakes-fall,
-        snowflakes-shake;
-      -webkit-animation-duration: 10s,
-        3s;
-      animation-duration: 10s,
-        3s;
-      -webkit-animation-timing-function: linear,
-        ease-in-out;
-      animation-timing-function: linear,
-        ease-in-out;
-      -webkit-animation-iteration-count: infinite,
-        infinite;
-      animation-iteration-count: infinite,
-        infinite;
-      -webkit-animation-play-state: running,
-        running;
-      animation-play-state: running,
-        running;
+      -webkit-animation-name: snowflakes-fall, snowflakes-shake;
+      animation-name: snowflakes-fall, snowflakes-shake;
+      -webkit-animation-duration: 10s, 3s;
+      animation-duration: 10s, 3s;
+      -webkit-animation-timing-function: linear, ease-in-out;
+      animation-timing-function: linear, ease-in-out;
+      -webkit-animation-iteration-count: infinite, infinite;
+      animation-iteration-count: infinite, infinite;
+      -webkit-animation-play-state: running, running;
+      animation-play-state: running, running;
 
       &:nth-child(1) {
         left: 1%;
-        -webkit-animation-delay: 0s,
-          0s;
-        animation-delay: 0s,
-          0s;
+        -webkit-animation-delay: 0s, 0s;
+        animation-delay: 0s, 0s;
       }
 
       &:nth-child(2) {
         left: 10%;
-        -webkit-animation-delay: 1s,
-          1s;
-        animation-delay: 1s,
-          1s;
+        -webkit-animation-delay: 1s, 1s;
+        animation-delay: 1s, 1s;
       }
 
       &:nth-child(3) {
         left: 20%;
-        -webkit-animation-delay: 6s,
-          .5s;
-        animation-delay: 6s,
-          .5s;
+        -webkit-animation-delay: 6s, 0.5s;
+        animation-delay: 6s, 0.5s;
       }
 
       &:nth-child(4) {
         left: 30%;
-        -webkit-animation-delay: 4s,
-          2s;
-        animation-delay: 4s,
-          2s;
+        -webkit-animation-delay: 4s, 2s;
+        animation-delay: 4s, 2s;
       }
 
       &:nth-child(5) {
         left: 40%;
-        -webkit-animation-delay: 2s,
-          2s;
-        animation-delay: 2s,
-          2s;
+        -webkit-animation-delay: 2s, 2s;
+        animation-delay: 2s, 2s;
       }
 
       &:nth-child(6) {
         left: 50%;
-        -webkit-animation-delay: 8s,
-          3s;
-        animation-delay: 8s,
-          3s;
+        -webkit-animation-delay: 8s, 3s;
+        animation-delay: 8s, 3s;
       }
 
       &:nth-child(7) {
         left: 60%;
-        -webkit-animation-delay: 6s,
-          2s;
-        animation-delay: 6s,
-          2s;
+        -webkit-animation-delay: 6s, 2s;
+        animation-delay: 6s, 2s;
       }
 
       &:nth-child(8) {
         left: 70%;
-        -webkit-animation-delay: 2.5s,
-          1s;
-        animation-delay: 2.5s,
-          1s;
+        -webkit-animation-delay: 2.5s, 1s;
+        animation-delay: 2.5s, 1s;
       }
 
       &:nth-child(9) {
         left: 80%;
-        -webkit-animation-delay: 1s,
-          0s;
-        animation-delay: 1s,
-          0s;
+        -webkit-animation-delay: 1s, 0s;
+        animation-delay: 1s, 0s;
       }
 
       &:nth-child(10) {
         left: 90%;
-        -webkit-animation-delay: 3s,
-          1.5s;
-        animation-delay: 3s,
-          1.5s;
+        -webkit-animation-delay: 3s, 1.5s;
+        animation-delay: 3s, 1.5s;
       }
     }
   }
@@ -566,49 +510,47 @@
 
 @-webkit-keyframes snowflakes-fall {
   0% {
-    top: -10%
+    top: -10%;
   }
 
   100% {
-    top: 100%
+    top: 100%;
   }
 }
 
 @keyframes snowflakes-fall {
   0% {
-    top: -10%
+    top: -10%;
   }
 
   100% {
-    top: 100%
+    top: 100%;
   }
 }
 
 @-webkit-keyframes snowflakes-shake {
-
   0%,
   100% {
     -webkit-transform: translateX(0);
-    transform: translateX(0)
+    transform: translateX(0);
   }
 
   50% {
     -webkit-transform: translateX(80px);
-    transform: translateX(80px)
+    transform: translateX(80px);
   }
 }
 
 @keyframes snowflakes-shake {
-
   0%,
   100% {
     -webkit-transform: translateX(0);
-    transform: translateX(0)
+    transform: translateX(0);
   }
 
   50% {
     -webkit-transform: translateX(80px);
-    transform: translateX(80px)
+    transform: translateX(80px);
   }
 }
 
@@ -653,7 +595,7 @@
   z-index: 100;
   opacity: 0;
   visibility: hidden;
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   &.show {
     visibility: visible;
     opacity: 1;
@@ -690,7 +632,8 @@
     width: 100px;
     font-weight: 600;
   }
-  input, select {
+  input,
+  select {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 8px;

@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-$font: 'Open Sans', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+$font: "Open Sans", sans-serif;
 html,
 body {
   height: 100%;
@@ -20,7 +20,8 @@ body {
 
 button,
 input,
-select, input::placeholder {
+select,
+input::placeholder {
   font-family: inherit;
 }
 .hidden {
